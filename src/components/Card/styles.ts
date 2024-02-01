@@ -32,8 +32,8 @@ export const SvgContainer = styled.div`
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: -1rem;
-    right: 0rem;
+    top: 0rem;
+    right: 0.7rem;
     background-color: ${({ theme }) => theme.colors.grey__300};
     padding: 0 0.7rem;
     border-radius: 50%;
@@ -57,7 +57,11 @@ export const CardContent = styled.div`
     padding: 0 0 2rem 1rem;
 `
 
-export const CardTitle = styled.h3`
+export const CardTitleBox = styled.div`
+    min-height: 8rem;
+`
+
+export const CardTitle = styled.p`
     color: ${({ theme }) => theme.colors.black};
     font-family: ${({ theme }) => theme.fonts.text};
     font-size: 2rem;
