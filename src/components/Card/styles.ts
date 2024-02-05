@@ -1,4 +1,42 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface SvgContainerProps {
+  isInWishlist?: boolean;
+}
+
+export const SvgContainer = styled.div<SvgContainerProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0rem;
+  right: 0.7rem;
+  
+  cursor: pointer;
+
+  svg {
+    fill: ${({ theme }) => theme.colors.grey__300};
+    width: 4rem;
+    background-color: ${({ theme }) => theme.colors.grey__300};
+    border-radius: 50%;
+    padding: 0 1rem;
+  }
+
+  ${({ isInWishlist }) =>
+    isInWishlist &&
+    css`
+      background-color: transparent;
+
+      svg {
+        fill: ${({ theme }) => theme.colors.grey__300}; // Altere para a cor desejada na Wishlist
+        background-color: transparent;
+      }
+
+      &:hover {
+        background-color: transparent; // Remova o hover background na Wishlist
+      }
+    `}
+`;
 
 export const Container = styled.div`
     display: flex;
@@ -27,29 +65,6 @@ export const CardHeader = styled.div`
     position: relative;
     margin-top: 1rem;
 `
-export const SvgContainer = styled.div`
-    display: flex; /* ou flex, dependendo do contexto */
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0rem;
-    right: 0.7rem;
-    background-color: ${({ theme }) => theme.colors.grey__300};
-    padding: 0 0.7rem;
-    border-radius: 50%;
-
-    &:hover {
-        transition: 0.2s;
-        cursor: pointer;
-    }
-
-    svg {
-        fill: ${({ theme }) => theme.colors.grey__300};
-        width: 2rem;
-    }
-`
-
-
 
 export const CardContent = styled.div`
     display: flex;
