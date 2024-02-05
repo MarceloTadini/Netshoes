@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 export const Loader = styled.div`
   border: 0.8rem solid #f3f3f3;
   border-top: 0.8rem solid ${({ theme }) => theme.colors.primary};

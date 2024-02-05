@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 interface SvgContainerProps {
   isInWishlist?: boolean;
+  isSelected?: boolean; // Adiciona a propriedade isSelected
 }
 
 export const SvgContainer = styled.div<SvgContainerProps>`
@@ -15,9 +16,9 @@ export const SvgContainer = styled.div<SvgContainerProps>`
   cursor: pointer;
 
   svg {
-    fill: ${({ theme }) => theme.colors.grey__300};
+    fill: ${({ theme, isSelected }) => (isSelected ? theme.colors.red : theme.colors.grey__300)};
     width: 4rem;
-    background-color: ${({ theme }) => theme.colors.grey__300};
+    background-color: ${({ theme, isSelected }) => (isSelected ? theme.colors.red : theme.colors.grey__300)};
     border-radius: 50%;
     padding: 0 1rem;
   }

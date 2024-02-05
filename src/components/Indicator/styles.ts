@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 interface PageProps {
-  isWishList?: boolean; // Adicione a propriedade isWishList
+  isWishList?: boolean; 
 }
 
 export const Page = styled.p<PageProps>`
@@ -15,7 +15,7 @@ export const Page = styled.p<PageProps>`
     css`
       font-weight: bold;
     `}
-`;
+`
 
 export const SubPage = styled.span`
   color: ${({ theme }) => theme.colors.primary};
@@ -23,4 +23,4 @@ export const SubPage = styled.span`
   font-size: 2rem;
   margin: 2rem 0;
   font-weight: bold;
-`;
+`

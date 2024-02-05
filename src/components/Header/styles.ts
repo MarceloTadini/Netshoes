@@ -73,7 +73,7 @@ export const LinksContainer = styled.div`
 export const UserMenuItem = styled.nav`
   position: relative;
   cursor: pointer;
-`;
+`
 
 export const UserMenu = styled.ul`
   position: absolute;
@@ -84,12 +84,13 @@ export const UserMenu = styled.ul`
   padding: 10px;
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-`;
+`
 
 export const MenuItem = styled.li`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: .2s;
 
   p {
     font-size: 1.4rem;
@@ -99,8 +100,7 @@ export const MenuItem = styled.li`
     padding: 0.1rem;
   }
 
-  :hover{
-      transition: .2s;
+  &:hover{
       font-weight: bold;
     }
-`;
+`

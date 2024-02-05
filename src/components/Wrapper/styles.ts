@@ -26,4 +26,4 @@ export const MainWrapper = styled.main`
   @media (max-width: 859px) {
     max-width: 50rem;
   }
-`;
+`

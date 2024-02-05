@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import Heart from '../../svg/Heart'
 import User from '../../svg/User'
 
@@ -18,15 +18,15 @@ const userMenuOptions = [
   { label: 'Minha Conta', path: '/' },
   { label: 'Endereços', path: '/' },
   { label: 'Minha Netshoes', path: '/' }
-];
+]
 
 const Header: React.FC = () => {
 
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
 
   const toggleUserMenu = () => {
-    setUserMenuOpen(!userMenuOpen);
-  };
+    setUserMenuOpen(!userMenuOpen)
+  }
 
   return (
     <S.Container>
