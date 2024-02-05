@@ -25,16 +25,17 @@ export const SvgContainer = styled.div<SvgContainerProps>`
   ${({ isInWishlist }) =>
     isInWishlist &&
     css`
-      background-color: transparent;
-
       svg {
         fill: ${({ theme }) => theme.colors.grey__300}; // Altere para a cor desejada na Wishlist
         background-color: transparent;
+        transition: .4s;
+      
+        &:hover {
+          fill: ${({ theme }) => theme.colors.grey__500};  // Remova o hover background na Wishlist
+        }
       }
 
-      &:hover {
-        background-color: transparent; // Remova o hover background na Wishlist
-      }
+      
     `}
 `;
 

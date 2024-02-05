@@ -63,6 +63,7 @@ const WishList: React.FC = () => {
               title={item.name}
               SvgIcon={<Delete />} // Você precisa importar o ícone Favorito aqui, se não estiver já importado
               onAction={() => handleRemoveFromWishlist(item)} // Passando a função corretamente
+              isInWishlist
             />
           ))}
         </MainWrapper>
