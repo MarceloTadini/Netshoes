@@ -23,4 +23,8 @@ export const SubPage = styled.span`
   font-size: 2rem;
   margin: 2rem 0;
   font-weight: bold;
+
+  &:hover{
+    text-decoration: underline;
+  }
 `

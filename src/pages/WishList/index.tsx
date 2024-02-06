@@ -33,13 +33,14 @@ const WishList: React.FC = () => {
 
   const handleRemoveFromWishlist = (item: WishlistItem) => {
     const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]')
-    const updatedWishlist = wishlist.filter((wishlistItem: WishlistItem) => wishlistItem.name !== item.name)
+    const updatedWishlist = wishlist.filter((wishlistItem: WishlistItem) => wishlistItem.selectedProduct !== item.selectedProduct)
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist))
     toast.success('Produto removido da lista de desejos!')
     console.log('Removed from wishlist:', item)
   
     // Atualizar o estado do SVG correspondente no localStorage
     localStorage.removeItem(`isSvgSelected_${item.selectedProduct}`)
+    console.log(`isSvgSelected_${item.selectedProduct}`)
   
     // Recarregar a lista de desejos após a remoção bem-sucedida
     loadWishlist()

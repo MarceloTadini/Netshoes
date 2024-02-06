@@ -15,8 +15,8 @@ export const Header = styled.header`
   padding: 2rem 0;
   @media (min-width: 768px) {
     flex-direction: row;
-    gap: 4rem;
     justify-content: space-between;
+    padding: 0 3rem;
   }
 `
 export const Logo = styled.h1`
@@ -62,7 +62,6 @@ export const LinksContainer = styled.div`
 
   @media (min-width: 768px) {
     justify-content: space-between;
-    padding: 0 2rem;
 
     p {
       font-size: 1.6rem;

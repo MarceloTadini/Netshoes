@@ -22,6 +22,7 @@ const Card: React.FC<CardProps> = ({
   const [isSvgSelected, setIsSvgSelected] = useState(() => {
     // Verifique se há um estado salvo no localStorage ao inicializar o componente
     const savedState = localStorage.getItem(`isSvgSelected_${id}`) // Use o id na chave
+    console.log(savedState) //
     return savedState ? JSON.parse(savedState) : false
   })
 
