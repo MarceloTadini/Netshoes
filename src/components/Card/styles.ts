@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 interface SvgContainerProps {
-  isInWishlist?: boolean;
-  isSelected?: boolean; // Adiciona a propriedade isSelected
+  $isInWishlist?: boolean;
+  $isSelected?: boolean; // Adiciona a propriedade isSelected
 }
 
 export const SvgContainer = styled.div<SvgContainerProps>`
@@ -16,26 +16,25 @@ export const SvgContainer = styled.div<SvgContainerProps>`
   cursor: pointer;
 
   svg {
-    fill: ${({ theme, isSelected }) => (isSelected ? theme.colors.red : theme.colors.grey__300)};
+    fill: ${({ theme, $isSelected }) => ($isSelected ? theme.colors.red : theme.colors.grey__300)};
     width: 4rem;
-    background-color: ${({ theme, isSelected }) => (isSelected ? theme.colors.red : theme.colors.grey__300)};
+    background-color: ${({ theme, $isSelected }) => ($isSelected ? theme.colors.red : theme.colors.grey__300)};
     border-radius: 50%;
     padding: 0 1rem;
   }
 
-  ${({ isInWishlist }) =>
-    isInWishlist &&
+  ${({ $isInWishlist }) =>
+    $isInWishlist &&
     css`
       svg {
-        fill: ${({ theme }) => theme.colors.grey__300}; // Altere para a cor desejada na Wishlist
+        fill: ${({ theme }) => theme.colors.grey__300}; 
         background-color: transparent;
         transition: .4s;
       
         &:hover {
-          fill: ${({ theme }) => theme.colors.grey__500};  // Remova o hover background na Wishlist
+          fill: ${({ theme }) => theme.colors.grey__500}; 
         }
       }
-
       
     `}
 `;

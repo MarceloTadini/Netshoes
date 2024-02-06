@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface PageProps {
-  isWishList?: boolean; 
+  $isWishList?: boolean; // Prefixando com $
 }
 
 export const Page = styled.p<PageProps>`
@@ -10,8 +10,8 @@ export const Page = styled.p<PageProps>`
   font-size: 2rem;
   margin: 2rem 0;
 
-  ${({ isWishList }) =>
-    !isWishList &&
+  ${({ $isWishList }) =>
+    !$isWishList &&
     css`
       font-weight: bold;
     `}

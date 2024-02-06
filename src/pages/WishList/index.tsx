@@ -43,7 +43,7 @@ const WishList: React.FC = () => {
 
   return (
     <div>
-      <Indicator page="Home" subPage="Wishlist" isWishList />
+      <Indicator page="Home" subPage="Wishlist" $isWishList />
       <Separator/>
       {loading ? (
         <Loader />
@@ -57,7 +57,8 @@ const WishList: React.FC = () => {
               title={item.name}
               SvgIcon={<Delete />}
               onAction={() => handleRemoveFromWishlist(item)}
-              isInWishlist
+              $isInWishlist
+              $isSelected
             />
           ))}
         </MainWrapper>

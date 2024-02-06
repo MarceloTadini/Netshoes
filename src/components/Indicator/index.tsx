@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom'
 interface IndicatorProps {
   page: string
   subPage?: string
-  isWishList?: boolean 
+  $isWishList?: boolean 
 }
 
-const Indicator: React.FC<IndicatorProps> = ({ page, subPage, isWishList }) => {
+const Indicator: React.FC<IndicatorProps> = ({ page, subPage, $isWishList }) => {
   return (
     <div>
-      <S.Page isWishList={isWishList}>
+      <S.Page $isWishList={$isWishList}>
         <Link to="/">
           {page} 
         </Link>

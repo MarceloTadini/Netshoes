@@ -67,6 +67,7 @@ const Home: React.FC = () => {
               title={product.name}
               SvgIcon={<Favorite />} 
               onAction={() => handleToggleWishlist(product)}
+              $isSelected
             />
           ))}
         </MainWrapper>

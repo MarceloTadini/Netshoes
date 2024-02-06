@@ -8,7 +8,8 @@ interface CardProps {
   title: string
   SvgIcon: React.ReactNode
   onAction: () => void
-  isInWishlist?: boolean
+  $isInWishlist?: boolean
+  $isSelected: boolean
 }
 
 const Card: React.FC<CardProps> = ({
@@ -17,7 +18,7 @@ const Card: React.FC<CardProps> = ({
   title,
   SvgIcon,
   onAction,
-  isInWishlist,
+  $isInWishlist,
 }) => {
   const [isSvgSelected, setIsSvgSelected] = useState<boolean>(() => {
     const savedState = localStorage.getItem(`isSvgSelected_${id}`);
@@ -39,8 +40,8 @@ const Card: React.FC<CardProps> = ({
         <img src={imageUrl} alt="" />
         <S.SvgContainer
           onClick={handleOnClick}
-          isInWishlist={isInWishlist}
-          isSelected={isSvgSelected}
+          $isInWishlist={$isInWishlist}
+          $isSelected={isSvgSelected}
         >
           {SvgIcon}
         </S.SvgContainer>
