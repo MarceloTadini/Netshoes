@@ -17,59 +17,46 @@ interface WishlistItem {
 }
 
 const WishList: React.FC = () => {
-  const [loading, setLoading] = useState<boolean>(true)
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([])
+  const [loading, setLoading] = useState<boolean>(true);
+  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
 
   useEffect(() => {
-    // Carregar a lista de desejos ao montar o componente
-    loadWishlist()
-  }, [])
+    loadWishlist();
+  }, [loading]);
 
   const loadWishlist = () => {
-    const items: WishlistItem[] = JSON.parse(localStorage.getItem('wishlist') || '[]')
-    setWishlistItems(items)
-    setLoading(false) // Indicar que os itens da lista de desejos foram carregados
+    const items: WishlistItem[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    setWishlistItems(items);
+    setLoading(false);
   }
 
   const handleRemoveFromWishlist = (item: WishlistItem) => {
-    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]')
-    const updatedWishlist = wishlist.filter((wishlistItem: WishlistItem) => wishlistItem.selectedProduct !== item.selectedProduct)
-    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist))
-    toast.success('Produto removido da lista de desejos!')
-    console.log('Removed from wishlist:', item)
-  
-    // Atualizar o estado do SVG correspondente no localStorage
-    localStorage.removeItem(`isSvgSelected_${item.selectedProduct}`)
-    console.log(`isSvgSelected_${item.selectedProduct}`)
-  
-    // Recarregar a lista de desejos após a remoção bem-sucedida
-    loadWishlist()
-  }
-  
+    const updatedWishlist = wishlistItems.filter((wishlistItem: WishlistItem) => wishlistItem.selectedProduct !== item.selectedProduct);
+    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+    toast.success('Produto removido da lista de desejos!');
 
-  useEffect(() => {
-    // Verificar se a lista de desejos está vazia e exibir o toast informativo
-    if (!loading && wishlistItems.length === 0) {
-      toast.info('Sua lista de desejos está vazia.')
-    }
-  }, [wishlistItems, loading])
+    // Atualizar o estado do SVG correspondente
+    localStorage.setItem(`isSvgSelected_${item.selectedProduct}`, JSON.stringify(false));
+
+    setWishlistItems(updatedWishlist);
+  }
 
   return (
     <div>
       <Indicator page="Home" subPage="Wishlist" isWishList />
       <Separator/>
-      {loading ? ( // Exibir o Loader enquanto os itens da lista de desejos estão sendo carregados
+      {loading ? (
         <Loader />
       ) : (
         <MainWrapper>
-          {wishlistItems.map((item: WishlistItem, index: number) => (
+          {wishlistItems.map((item: WishlistItem) => (
             <Card
-              key={index}
+              key={item.selectedProduct}
               id={item.selectedProduct}
               imageUrl={item.product.image}
               title={item.name}
-              SvgIcon={<Delete />} // Você precisa importar o ícone Favorito aqui, se não estiver já importado
-              onAction={() => handleRemoveFromWishlist(item)} // Passando a função corretamente
+              SvgIcon={<Delete />}
+              onAction={() => handleRemoveFromWishlist(item)}
               isInWishlist
             />
           ))}
@@ -78,5 +65,6 @@ const WishList: React.FC = () => {
     </div>
   )
 }
+
 
 export default WishList

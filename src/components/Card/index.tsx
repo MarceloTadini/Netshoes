@@ -12,29 +12,26 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
-  id, // Receba o id como propriedade
+  id,
   imageUrl,
   title,
   SvgIcon,
   onAction,
   isInWishlist,
 }) => {
-  const [isSvgSelected, setIsSvgSelected] = useState(() => {
-    // Verifique se há um estado salvo no localStorage ao inicializar o componente
-    const savedState = localStorage.getItem(`isSvgSelected_${id}`) // Use o id na chave
-    console.log(savedState) //
-    return savedState ? JSON.parse(savedState) : false
-  })
-
-  useEffect(() => {
-    // Salve o estado no localStorage sempre que ele mudar
-    localStorage.setItem(`isSvgSelected_${id}`, JSON.stringify(isSvgSelected)) // Use o id na chave
-  }, [id, isSvgSelected])
+  const [isSvgSelected, setIsSvgSelected] = useState<boolean>(() => {
+    const savedState = localStorage.getItem(`isSvgSelected_${id}`);
+    return savedState ? JSON.parse(savedState) : false;
+  });
 
   const handleOnClick = () => {
-    setIsSvgSelected((prev: boolean) => !prev) // Alternar o estado do SVG selecionado
-    onAction() // Chamada da função para lidar com a ação do clique
-  }
+    setIsSvgSelected((prev: boolean) => !prev);
+    onAction();
+  };
+
+  useEffect(() => {
+    localStorage.setItem(`isSvgSelected_${id}`, JSON.stringify(isSvgSelected));
+  }, [id, isSvgSelected]);
 
   return (
     <S.Container>
@@ -43,7 +40,7 @@ const Card: React.FC<CardProps> = ({
         <S.SvgContainer
           onClick={handleOnClick}
           isInWishlist={isInWishlist}
-          isSelected={isSvgSelected} // Passar o estado do SVG selecionado para o estilo
+          isSelected={isSvgSelected}
         >
           {SvgIcon}
         </S.SvgContainer>
@@ -57,7 +54,7 @@ const Card: React.FC<CardProps> = ({
         <S.NewPrice>R$149,90</S.NewPrice>
       </S.CardContent>
     </S.Container>
-  )
-}
+  );
+};
 
 export default Card
