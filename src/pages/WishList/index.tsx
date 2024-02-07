@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Separator } from '../../components/Separator/styles'
 import { MainWrapper } from '../../components/Wrapper/styles'
 import Card from '../../components/Card'
-import Delete from '../../svg/Delete'
 import { Loader } from '../../components/Loader/styles'
 import { Product } from '../../types'
 import { toast } from 'react-toastify'
@@ -15,7 +14,7 @@ const WishList: React.FC = () => {
 
   useEffect(() => {
     loadWishlist()
-  }, [loading])
+  }, [])
 
   const loadWishlist = () => {
     const items: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]')
@@ -50,13 +49,9 @@ const WishList: React.FC = () => {
             {wishlistItems.map((product: Product) => (
               <Card
                 key={product.selectedProduct}
-                id={product.selectedProduct}
-                imageUrl={product.product.image}
-                title={product.name}
-                SvgIcon={<Delete />}
-                onAction={() => handleRemoveFromWishlist(product)}
+                product={product}
+                onAction={handleRemoveFromWishlist}
                 $isInWishlist
-                $isSelected
               />
             ))}
           </MainWrapper>

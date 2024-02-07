@@ -1,12 +1,8 @@
 export interface CardProps {
-    id: string 
-    imageUrl: string
-    title: string
-    SvgIcon: React.ReactNode
-    onAction: () => void
+    product: Product;
+    onAction: (product: Product) => void;
     $isInWishlist?: boolean
-    $isSelected: boolean
-} 
+}
 
 export interface IndicatorProps {
     title: string

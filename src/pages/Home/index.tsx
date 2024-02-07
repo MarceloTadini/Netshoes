@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Separator } from '../../components/Separator/styles'
 import Card from '../../components/Card'
 import { MainWrapper } from '../../components/Wrapper/styles'
-import Favorite from "../../svg/Heart"
 import { Loader } from '../../components/Loader/styles'
 import { Product } from '../../types'
 import { toast } from 'react-toastify'
@@ -53,13 +52,9 @@ const Home: React.FC = () => {
           {products.map((product :Product) => (
             <Card
               key={product.selectedProduct}
-              id={product.selectedProduct}
-              imageUrl={product.product.image}
-              title={product.name}
-              SvgIcon={<Favorite />} 
+              product={product}
               onAction={() => handleToggleWishlist(product)}
-              $isSelected
-            />
+          />
           ))}
         </MainWrapper>
       )}
