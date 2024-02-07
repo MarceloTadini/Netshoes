@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Separator } from '../../components/Separator/styles'
-import { MainWrapper } from '../../components/Wrapper/styles'
-import Card from '../../components/Card' 
-import Delete from '../../svg/Delete'
-import { Loader } from '../../components/Loader/styles'
-import { Product } from '../../types'
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { NotFound } from '../../components/NotFound/styles'
-
+import React, { useEffect, useState } from 'react';
+import { Separator } from '../../components/Separator/styles';
+import { MainWrapper } from '../../components/Wrapper/styles';
+import Card from '../../components/Card';
+import Delete from '../../svg/Delete';
+import { Loader } from '../../components/Loader/styles';
+import { Product } from '../../types';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { NotFound } from '../../components/NotFound/styles';
 
 const WishList: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -30,7 +29,6 @@ const WishList: React.FC = () => {
     toast.success('Produto removido da lista de desejos!');
     console.log('Removed from wishlist:', product)
 
-
     // Atualizar o estado do SVG correspondente
     localStorage.setItem(`isSvgSelected_${product.selectedProduct}`, JSON.stringify(false));
 
@@ -40,13 +38,13 @@ const WishList: React.FC = () => {
   return (
     <div>
       <Separator />
-      {wishlistItems.length === 0 ? (
-        <NotFound>
-          Você não adicionou nenhum produto na sua lista de desejos
-        </NotFound>
+      {loading ? (
+        <Loader />
       ) : (
-        loading ? (
-          <Loader />
+        wishlistItems.length === 0 ? (
+          <NotFound>
+            Você não adicionou nenhum produto na sua lista de desejos
+          </NotFound>
         ) : (
           <MainWrapper>
             {wishlistItems.map((product: Product) => (
@@ -66,8 +64,6 @@ const WishList: React.FC = () => {
       )}
     </div>
   );
-  
 }
 
-
-export default WishList
+export default WishList;
