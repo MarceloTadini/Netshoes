@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Indicator from '../../components/Indicator'
 import { Separator } from '../../components/Separator/styles'
 import Card from '../../components/Card'
 import { MainWrapper } from '../../components/Wrapper/styles'
 import Favorite from "../../svg/Heart"
 import { Loader } from '../../components/Loader/styles'
+import { Product } from '../../types'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-interface Product {
-  selectedProduct: string
-  name: string
-  product: {
-    image: string
-  }
-}
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true)
@@ -53,13 +45,12 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <Indicator page="Home"/>
       <Separator/>
       {loading ? ( // Exibir o Loader se os produtos estiverem carregando
         <Loader />
       ) : (
         <MainWrapper>
-          {products.map(product => (
+          {products.map((product :Product) => (
             <Card
               key={product.selectedProduct}
               id={product.selectedProduct}

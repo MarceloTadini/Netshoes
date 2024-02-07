@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react"
 import * as S from "./styles"
 import Rate from "../Rate"
 
-interface CardProps {
-  id: string // Adicione a propriedade id
-  imageUrl: string
-  title: string
-  SvgIcon: React.ReactNode
-  onAction: () => void
-  $isInWishlist?: boolean
-  $isSelected: boolean
-}
+import { CardProps } from "../../types";
 
 const Card: React.FC<CardProps> = ({
   id,

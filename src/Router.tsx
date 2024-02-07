@@ -3,12 +3,19 @@ import { Wrapper } from './components/Wrapper/styles'
 import Header from './components/Header'
 import Home from './pages/Home'
 import WishList from './pages/WishList'
+import Indicator from './components/Indicator'
+
+const pathMap = {
+  home: 'Home',
+  wishlist: 'Wishlist'
+}
 
 const Layout = () => {
   return (
     <>
       <Header />
       <Wrapper>
+        <Indicator pathMap={pathMap}></Indicator>
         <Outlet />
       </Wrapper>
     </>
