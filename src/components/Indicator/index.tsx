@@ -30,11 +30,11 @@ const Indicator: React.FC<Props> = ({ pathMap }) => {
             <span style={{ fontWeight: isLast ? 'bold' : 'normal' }}>{breadcrumb.title}</span>
           </Link>
         </div>
-      );
-    });
+      )
+    })
   
-    return generate;
-  };
+    return generate
+  }
   
 
   useEffect(() => {

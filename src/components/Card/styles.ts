@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components"
 
 interface SvgContainerProps {
-  $isInWishlist?: boolean;
-  $isSelected?: boolean; // Adiciona a propriedade isSelected
+  $isInWishlist?: boolean
+  $isSelected?: boolean
 }
 
 export const SvgContainer = styled.div<SvgContainerProps>`
@@ -37,7 +37,7 @@ export const SvgContainer = styled.div<SvgContainerProps>`
       }
       
     `}
-`;
+`
 
 export const Container = styled.div`
     display: flex;

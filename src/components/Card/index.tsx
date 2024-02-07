@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import * as S from "./styles"
 import Rate from "../Rate"
 
-import { CardProps } from "../../types";
+import { CardProps } from "../../types"
 
 const Card: React.FC<CardProps> = ({
   id,
@@ -13,18 +13,18 @@ const Card: React.FC<CardProps> = ({
   $isInWishlist,
 }) => {
   const [isSvgSelected, setIsSvgSelected] = useState<boolean>(() => {
-    const savedState = localStorage.getItem(`isSvgSelected_${id}`);
-    return savedState ? JSON.parse(savedState) : false;
+    const savedState = localStorage.getItem(`isSvgSelected_${id}`)
+    return savedState ? JSON.parse(savedState) : false
   });
 
   const handleOnClick = () => {
-    setIsSvgSelected((prev: boolean) => !prev);
-    onAction();
+    setIsSvgSelected((prev: boolean) => !prev)
+    onAction()
   };
 
   useEffect(() => {
-    localStorage.setItem(`isSvgSelected_${id}`, JSON.stringify(isSvgSelected));
-  }, [id, isSvgSelected]);
+    localStorage.setItem(`isSvgSelected_${id}`, JSON.stringify(isSvgSelected))
+  }, [id, isSvgSelected])
 
   return (
     <S.Container>
@@ -47,7 +47,7 @@ const Card: React.FC<CardProps> = ({
         <S.NewPrice>R$149,90</S.NewPrice>
       </S.CardContent>
     </S.Container>
-  );
-};
+  )
+}
 
 export default Card

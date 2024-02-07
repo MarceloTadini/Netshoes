@@ -18,5 +18,5 @@ export interface Product {
     name: string;
     product: {
       image: string;
-    };
+    }
 }
