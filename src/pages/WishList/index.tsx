@@ -7,6 +7,7 @@ import Delete from '../../svg/Delete'
 import { Loader } from '../../components/Loader/styles'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { NotFound } from '../../components/NotFound/styles'
 
 interface WishlistItem {
   name: string
@@ -44,27 +45,34 @@ const WishList: React.FC = () => {
   return (
     <div>
       <Indicator page="Home" subPage="Wishlist" $isWishList />
-      <Separator/>
-      {loading ? (
-        <Loader />
+      <Separator />
+      {wishlistItems.length === 0 ? (
+        <NotFound>
+          Você não adicionou nenhum produto na sua lista de desejos
+        </NotFound>
       ) : (
-        <MainWrapper>
-          {wishlistItems.map((item: WishlistItem) => (
-            <Card
-              key={item.selectedProduct}
-              id={item.selectedProduct}
-              imageUrl={item.product.image}
-              title={item.name}
-              SvgIcon={<Delete />}
-              onAction={() => handleRemoveFromWishlist(item)}
-              $isInWishlist
-              $isSelected
-            />
-          ))}
-        </MainWrapper>
+        loading ? (
+          <Loader />
+        ) : (
+          <MainWrapper>
+            {wishlistItems.map((item: WishlistItem) => (
+              <Card
+                key={item.selectedProduct}
+                id={item.selectedProduct}
+                imageUrl={item.product.image}
+                title={item.name}
+                SvgIcon={<Delete />}
+                onAction={() => handleRemoveFromWishlist(item)}
+                $isInWishlist
+                $isSelected
+              />
+            ))}
+          </MainWrapper>
+        )
       )}
     </div>
-  )
+  );
+  
 }
 
 
