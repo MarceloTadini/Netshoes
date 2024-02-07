@@ -5,10 +5,9 @@ export const Wrapper = styled.div`
   max-width: 136.6rem;
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 768px) {
-    padding: 0 2rem;
-  }
+  
+  padding: 0 2rem;
+  
 `
 
 export const MainWrapper = styled.main`
@@ -25,5 +24,6 @@ export const MainWrapper = styled.main`
 
   @media (max-width: 859px) {
     max-width: 50rem;
+    justify-content: center;
   }
 `
