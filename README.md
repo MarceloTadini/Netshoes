@@ -17,12 +17,12 @@
 * Bibliotecas do Node Package Manager;
 * Styled-components para estilização;
 * React Router DOM para navegação entre rotas;
-* Vitest + Jest + React Testing Library para execução dos teste;
+* Vitest + Jest + React Testing Library para execução dos testes;
 
 ## :rocket: Como executar 
 * Clone o repositório:
 ```` git clone https://github.com/MarceloTadini/Netshoes.git ````
-* Entre na pasta my-app ```` cd my-app ````
+* Entre na pasta raíz do preojeto
 * Instale as dependências: ```` npm install ````
 * Inicie o servidor: ```` npm run dev ````
 * Execução dos testes: ```` npm run test ````
