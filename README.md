@@ -22,7 +22,7 @@
 ## :rocket: Como executar 
 * Clone o repositório:
 ```` git clone https://github.com/MarceloTadini/Netshoes.git ````
-* Entre na pasta raíz do preojeto
+* Entre na pasta raíz do projeto
 * Instale as dependências: ```` npm install ````
 * Inicie o servidor: ```` npm run dev ````
 * Execução dos testes: ```` npm run test ````
